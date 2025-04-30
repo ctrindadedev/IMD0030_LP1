@@ -2,16 +2,16 @@
 using std::cin;
 using std::cout;
 using std::endl;
-
-
 #include "classes.h"
+
+
 
 
 int main() {
     // Criação dos clientes
-    Cliente cliente1("Ana", "111.111.111-11");
-    Cliente cliente2("Bruno", "222.222.222-22");
-    Cliente cliente3("Carla", "333.333.333-33");
+    Cliente cliente1("111.111.111-11", "Ana");
+    Cliente cliente2("222.222.222-22", "Bruno");
+    Cliente cliente3("333.333.333-33", "Carla");
 
     // Criação das contas bancárias com saldos iniciais
     ContaBancaria conta1(1001, cliente1, 1000.0);
@@ -22,10 +22,10 @@ int main() {
     conta1.exibirSaldo();
 
     // Ana transfere R$200 para Bruno
-    conta1.transferir(200.0, conta2);
+    conta1.transferirValor(200.0, conta2);
 
     // Ana transfere R$300 divididos entre Bruno e Carla
-    conta1.transferir(300.0, conta2, conta3);
+    conta1.transferirValor(300.0, conta2, conta3);
 
     // Exibição dos saldos finais
     cout << endl;
