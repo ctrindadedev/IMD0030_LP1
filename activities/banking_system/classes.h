@@ -44,15 +44,34 @@ ContaBancaria(int nconta, Cliente titularconta, double sconta = 0);
     double sacarValor(double valor);
     void transferirValor(double valor, ContaBancaria &destino1);
     void transferirValor(double valor, ContaBancaria &destino1, ContaBancaria &destino2);
+    int exibirNumero();
     void exibirSaldo() ;
-    void exibirInformacoes() ;
-    void exibidirNumeroConta();
+    void exibirInformacoes();
 };
 
  ContaBancaria::ContaBancaria(int nconta, Cliente titularconta, double sconta):
     numero(nconta), //setConta
     saldo(sconta), // setSaldo
     titular(titularconta){}// setCliente
+
+
+//Metódo para exibir apenas o saldo de uma conta bancária
+void  ContaBancaria::exibirSaldo(){
+    std::cout << "O saldo atual da conta " << numero <<": R$ " << saldo << std::endl;
+} 
+
+//Metódo para exibir as informações da conta e do titular.
+void ContaBancaria::exibirInformacoes(){
+    std::cout << "Titular: " << titular.getNome() << ", CPF: " << titular.getCpf() << "\n" << 
+    "Número da Conta: " << numero << ", Saldo: R$ " << saldo  << "\n" <<std::endl;
+}
+
+//Metodo para exibir apenas o número da conta
+int ContaBancaria::exibirNumero(){
+    return numero;
+}
+
+
 
 //Metódo para depositar um valor maior do que zero
 double ContaBancaria::depositarValor(double valor){
@@ -75,16 +94,9 @@ double ContaBancaria::sacarValor(double valor){
         return valor;
     }
 
-//Metódo para exibir apenas o saldo de uma conta bancária
-void  ContaBancaria::exibirSaldo(){
-    std::cout << "O saldo atual da conta " << numero <<": R$ " << saldo << std::endl;
-} 
 
-//Metódo para exibir as informações da conta e do titular.
-void ContaBancaria::exibirInformacoes(){
-    std::cout << "Titular: " << titular.getNome() << ", CPF: " << titular.getCpf() << "\n" << 
-    "Número da Conta: " << numero << " Saldo: " << saldo << "\n" <<std::endl;
-}
+
+
 
 //Metódos de transferir (Utilizando o conceito de sobrecarga)
 
@@ -96,7 +108,7 @@ void ContaBancaria::exibirInformacoes(){
     }
     saldo -= valor;
     destino1.depositarValor(valor);
-    std::cout << "Transferido: R$ " << valor << " da conta " << numero << " para a conta " << &destino1 << "\n";
+    std::cout << "Transferido: R$ " << valor << " da conta " << numero << " para a conta " << destino1.exibirNumero() << "\n";
 }
     // Trasfere o valor dividido igualmente entre duas contas destino (Verifica se há saldo suficiente). - Versão 2 da Função
 
@@ -108,7 +120,7 @@ void ContaBancaria::exibirInformacoes(){
     saldo -= valor;
     destino1.depositarValor(valor/2);
     destino2.depositarValor(valor/2);
-       std::cout << "Transferido: R$ " << (valor/2) << " para cada conta " <<"("<< &destino1 << "e" << &destino2 << ")" << " da conta " << numero << "\n";
+       std::cout << "Transferido: R$ " << (valor/2) << " para cada conta " <<"("<< destino1.exibirNumero() << " e " << destino2.exibirNumero() << ")" << " da conta " << numero << "\n";
     }
 
     #endif // Fim da definicao de _CLASSES_H
