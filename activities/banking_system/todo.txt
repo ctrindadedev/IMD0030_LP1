@@ -62,3 +62,5 @@ Titular: Bruno, CPF: 222.222.222-22
 Número da Conta: 1002, Saldo: R$ 350
 Titular: Carla, CPF: 333.333.333-33
 Número da Conta: 1003, Saldo: R$ 150
+======
+Uma dica: Tentem fazer com cuidado, organizadamente, com arquivos separadinhos, usando .cpp, .h separados, façam o Makefile, testem se quando se altera um arquivo o Makefile ajuda a recompiliar o projeto.
