@@ -1,5 +1,5 @@
 #Makefile for a "banking system" C++ application
-#Created by Caio de Medeiros Trindade  10/08/2016
+#Created by Caio de Medeiros Trindade  08/05/2025
 
 #PROG É a variável
 PROG = banking_system #Recebe o executável
